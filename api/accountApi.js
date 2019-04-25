@@ -7,6 +7,11 @@ const AccountSchema = mongoose.Schema({
 
 let AccountsCollection = mongoose.model("accounts", AccountSchema)
 
+function getAllAccounts() {
+    return AccountsCollection.find();
+}
+
 module.exports = {
+    getAllAccounts
 
 }
