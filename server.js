@@ -46,6 +46,13 @@ app.delete('/accounts/:id', (req,res) => {
         })
 })
 
+app.get('/accounts/:id/edit', (req,res) => {
+    accountApi.getAccountById(req.params.id)
+        .then(account => {
+            res.render('accounts/edit-account-form', { account })
+        })
+})
+
 const PORT = process.env.PORT || 3000 
 app.listen(PORT, () => {
     console.log("connected at: " + PORT)
