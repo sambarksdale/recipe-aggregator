@@ -11,7 +11,12 @@ function getAllAccounts() {
     return AccountsCollection.find();
 }
 
+function getAccountById(id) {
+    return AccountsCollection.findById(id);
+}
+
 module.exports = {
-    getAllAccounts
+    getAllAccounts,
+    getAccountById,
 
 }
