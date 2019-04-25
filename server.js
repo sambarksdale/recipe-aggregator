@@ -32,6 +32,13 @@ app.post('/accounts', (req,res) => {
         })
 })
 
+app.get('/accounts/:id', (req,res) => {
+    accountApi.getAccountById(req.params.id)
+        .then(account => {
+            res.render('accounts/account', { account })
+        })
+})
+
 const PORT = process.env.PORT || 3000 
 app.listen(PORT, () => {
     console.log("connected at: " + PORT)
