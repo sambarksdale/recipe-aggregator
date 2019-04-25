@@ -19,9 +19,14 @@ function newAccount(acctData) {
     return AccountsCollection.create(acctData);
 }
 
+function deleteAccountById(id) {
+    return AccountsCollection.deleteOne({ _id: id });
+}
+
 module.exports = {
     getAllAccounts,
     getAccountById,
     newAccount,
+    deleteAccountById,
 
 }
