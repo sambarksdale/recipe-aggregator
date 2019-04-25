@@ -52,9 +52,12 @@ app.get('/accounts/:id/edit', (req,res) => {
         })
 })
 
-app.put('/accounts', (req,res) => {
-    console.log(req.body._id)
-    console.log(req.body)
+app.put('/accounts/:id', (req,res) => {
+    accountApi.getAccountById(req.params.id)
+        .then(account => {
+            console.log(account)
+            console.log(req.body)
+        })
 })
 
 const PORT = process.env.PORT || 3000 

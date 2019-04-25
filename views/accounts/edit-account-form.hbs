@@ -1,10 +1,6 @@
 <h1>Edit Account Page</h1>
 
-<form method="POST" action="/accounts?_method=PUT">
-    <label for="_id" >hide me later</label>
-    <input type="text" name="_id" value="{{account._id}}" />
-    <br>
-    <br>
+<form method="POST" action="/accounts/{{account._id}}?_method=PUT">
     <label for="firstName" >First Name</label>
     <input type="text" name="firstName" value="{{account.firstName}}" />
     <br>

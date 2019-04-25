@@ -24,7 +24,8 @@ function deleteAccountById(id) {
 }
 
 function editAccountById(id, acctData) {
-    return AccountsCollection.updateOne(id, acctData);
+    return AccountsCollection.updateOne(account, acctData) 
+        
 }
 
 module.exports = {
