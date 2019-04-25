@@ -15,8 +15,13 @@ function getAccountById(id) {
     return AccountsCollection.findById(id);
 }
 
+function newAccount(acctData) {
+    return AccountsCollection.create(acctData);
+}
+
 module.exports = {
     getAllAccounts,
     getAccountById,
+    newAccount,
 
 }
