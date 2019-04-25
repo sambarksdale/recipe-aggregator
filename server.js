@@ -39,6 +39,13 @@ app.get('/accounts/:id', (req,res) => {
         })
 })
 
+app.delete('/accounts/:id', (req,res) => {
+    accountApi.deleteAccountById(req.params.id)
+        .then(() => {
+            res.redirect('/accounts')
+        })
+})
+
 const PORT = process.env.PORT || 3000 
 app.listen(PORT, () => {
     console.log("connected at: " + PORT)

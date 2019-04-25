@@ -1,1 +1,7 @@
 <h1>Account Page</h1>
+
+{{account._id}}
+
+<form method="POST" action="/accounts/{{account._id}}?_method=DELETE">
+    <input type="submit" value="delete this account" />
+</form>
