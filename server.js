@@ -18,7 +18,11 @@ app.get('/accounts', (req,res) => {
         .then(accounts => {
             res.render("accounts/accounts")
         }) 
-}) 
+})
+
+app.get('/accounts/new-account-form', (req,res) => {
+    res.render('accounts/new-account-form')
+})
 
 const PORT = process.env.PORT || 3000 
 app.listen(PORT, () => {
