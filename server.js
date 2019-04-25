@@ -16,12 +16,20 @@ app.get('/', (req,res) => {
 app.get('/accounts', (req,res) => {
     accountApi.getAllAccounts()
         .then(accounts => {
-            res.render("accounts/accounts")
+            res.render("accounts/accounts");
         }) 
 })
 
 app.get('/accounts/new-account-form', (req,res) => {
-    res.render('accounts/new-account-form')
+    res.render('accounts/new-account-form');
+})
+
+app.post('/accounts', (req,res) => {
+    console.log(req.body)
+    accountApi.newAccount(req.body)
+        .then(() => {
+            res.redirect('/accounts');
+        })
 })
 
 const PORT = process.env.PORT || 3000 
