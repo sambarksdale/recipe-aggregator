@@ -16,7 +16,7 @@ app.get('/', (req,res) => {
 app.get('/accounts', (req,res) => {
     accountApi.getAllAccounts()
         .then(accounts => {
-            res.render("accounts/accounts");
+            res.render("accounts/accounts", {accounts});
         }) 
 })
 

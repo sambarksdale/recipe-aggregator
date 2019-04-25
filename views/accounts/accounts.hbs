@@ -1,5 +1,13 @@
 <h1>Accounts Page</h1>
 
+{{#each accounts}}
+    <ul>
+        <li>
+            Account: {{firstName}} {{lastName}}
+        </li>
+    </ul>
+{{/each}}
+
 <a href="/accounts/new-account-form">
     <input type="button" value="create new account" />
 </a>
