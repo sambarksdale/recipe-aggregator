@@ -23,10 +23,15 @@ function deleteAccountById(id) {
     return AccountsCollection.deleteOne({ _id: id });
 }
 
+function editAccountById(id, acctData) {
+    return AccountsCollection.updateOne(id, acctData);
+}
+
 module.exports = {
     getAllAccounts,
     getAccountById,
     newAccount,
     deleteAccountById,
+    editAccountById
 
 }
