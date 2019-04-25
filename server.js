@@ -25,7 +25,6 @@ app.get('/accounts/new-account-form', (req,res) => {
 })
 
 app.post('/accounts', (req,res) => {
-    console.log(req.body)
     accountApi.newAccount(req.body)
         .then(() => {
             res.redirect('/accounts');
@@ -51,6 +50,11 @@ app.get('/accounts/:id/edit', (req,res) => {
         .then(account => {
             res.render('accounts/edit-account-form', { account })
         })
+})
+
+app.put('/accounts', (req,res) => {
+    console.log(req.body._id)
+    console.log(req.body)
 })
 
 const PORT = process.env.PORT || 3000 
