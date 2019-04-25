@@ -59,7 +59,10 @@ app.put('/accounts/:id', (req,res) => {
             console.log(req.body)
             accountApi.editAccount(account,req.body)
                 .then(() => {
-                    console.log("eve 6")
+                    accountApi.getAccountById(req.params.id)
+                        .then(account => {
+                            res.render('accounts/account', { account })
+                        })
                 })
         })
 })
