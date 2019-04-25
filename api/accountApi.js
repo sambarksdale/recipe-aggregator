@@ -23,7 +23,7 @@ function deleteAccountById(id) {
     return AccountsCollection.deleteOne({ _id: id });
 }
 
-function editAccountById(id, acctData) {
+function editAccount(account, acctData) {
     return AccountsCollection.updateOne(account, acctData) 
         
 }
@@ -33,6 +33,6 @@ module.exports = {
     getAccountById,
     newAccount,
     deleteAccountById,
-    editAccountById
+    editAccount
 
 }
