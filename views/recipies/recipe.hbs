@@ -1,1 +1,14 @@
-<h1>Specific Recipie</h1>
+<h1>{{recipe.name}}</h1>
+
+{{#each recipe.ingredients}}
+    <li>
+        {{this}}
+    </li>
+{{/each}}
+
+<p>{{recipe.instructions}}</p>
+
+<form method="POST" action="/recipies/{{recipe._id}}?_method=DELETE">
+    <input type="submit" value="delete recipe" />
+</form>>
+

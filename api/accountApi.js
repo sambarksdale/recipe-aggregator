@@ -11,20 +11,20 @@ function getAllAccounts() {
     return AccountsCollection.find();
 }
 
-function getAccountById(id) {
-    return AccountsCollection.findById(id);
+function getAccountById(acctId) {
+    return AccountsCollection.findById(acctId);
 }
 
 function newAccount(acctData) {
     return AccountsCollection.create(acctData);
 }
 
-function deleteAccountById(id) {
-    return AccountsCollection.deleteOne({ _id: id });
+function deleteAccountById(acctId) {
+    return AccountsCollection.deleteOne({ _id: acctId });
 }
 
-function editAccount(account, acctData) {
-    return AccountsCollection.updateOne(account, acctData) 
+function editAccount(acct, acctData) {
+    return AccountsCollection.updateOne(acct, acctData) 
         
 }
 

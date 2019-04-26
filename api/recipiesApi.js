@@ -14,16 +14,20 @@ function getAllRecipies() {
     return RecipiesColleection.find()
 }
 
-function getRecipiesByAccountId(accountId) {
-    return RecipiesColleection.find({ accountId })
+function getRecipiesByAccountId(acctId) {
+    return RecipiesColleection.find({ acctId })
 }
 
-function getRecipeById(id) {
-    return RecipiesColleection.findById(id);
+function getRecipeById(recipeId) {
+    return RecipiesColleection.findById(recipeId);
 }
 
 function newRecipe(recipeData) {
     return RecipiesColleection.create(recipeData);
+}
+
+function deleteRecipeById(recipeId) {
+    return RecipiesColleection.deleteOne({ _id: recipeId })
 }
 
 module.exports = {
@@ -31,4 +35,5 @@ module.exports = {
     getRecipiesByAccountId,
     getRecipeById,
     newRecipe,
+    deleteRecipeById
 }
