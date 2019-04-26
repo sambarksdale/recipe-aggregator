@@ -12,6 +12,11 @@ function getAllRecipies() {
     return RecipiesColleection.find()
 }
 
+function getRecipeById(id) {
+    return RecipiesColleection.findById(id);
+}
+
 module.exports = {
     getAllRecipies,
+    getRecipeById,
 }
