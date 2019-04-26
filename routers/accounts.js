@@ -36,7 +36,11 @@ router
     .get((req,res) => {
         accountApi.getAccountById(req.params.id)
             .then(account => {
-                
+                recipiesApi.getRecipiesByAccountId()
+                    .then(recipies => {
+                        account.recipies = recipies;
+                        res.render('accounts/account', { account })
+                    })
             })
     })
     //res.render('accounts/account', { account })
