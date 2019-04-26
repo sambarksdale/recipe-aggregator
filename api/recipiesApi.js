@@ -7,3 +7,11 @@ const RecipeSchema = mongoose.Schema({
 })
 
 let RecipiesColleection = mongoose.model("recipies", RecipeSchema)
+
+function getAllRecipies() {
+    return RecipiesColleection.find()
+}
+
+module.exports = {
+    getAllRecipies,
+}
