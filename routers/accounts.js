@@ -20,19 +20,13 @@ router
     })
     
 router
-    .route('/accounts/new-account-form')
+    .route('/accounts/:id/new-account-form')
     .get((req,res) => {
         res.render('accounts/new-account-form');
     })
 
 router
     .route('/accounts/:id')
-    // .get((req,res) => {
-    //     accountApi.getAccountById(req.params.id)
-    //         .then(account => {
-    //             res.render('accounts/account', { account })
-    //         })
-    // })
     .get((req,res) => {
         accountApi.getAccountById(req.params.id)
             .then(account => {
@@ -43,7 +37,6 @@ router
                     })
             })
     })
-    //res.render('accounts/account', { account })
     .delete((req,res) => {
         accountApi.deleteAccountById(req.params.id)
             .then(() => {
