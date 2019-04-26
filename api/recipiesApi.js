@@ -16,7 +16,12 @@ function getRecipeById(id) {
     return RecipiesColleection.findById(id);
 }
 
+function newRecipe(recipeData) {
+    return RecipiesColleection.create(recipeData);
+}
+
 module.exports = {
     getAllRecipies,
     getRecipeById,
+    newRecipe,
 }
