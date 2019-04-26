@@ -1,3 +1,4 @@
+//const {accountRouter} = require('./routers')
 const accountApi = require('./api/accountApi.js');
 const express = require('express');
 const app = express();
@@ -12,60 +13,8 @@ app.set("view engine", "hbs");
 app.get('/', (req,res) => {
     res.redirect("/accounts");
 })
-
-app.get('/accounts', (req,res) => {
-    accountApi.getAllAccounts()
-        .then(accounts => {
-            res.render("accounts/accounts", {accounts});
-        }) 
-})
-
-app.get('/accounts/new-account-form', (req,res) => {
-    res.render('accounts/new-account-form');
-})
-
-app.post('/accounts', (req,res) => {
-    accountApi.newAccount(req.body)
-        .then(() => {
-            res.redirect('/accounts');
-        })
-})
-
-app.get('/accounts/:id', (req,res) => {
-    accountApi.getAccountById(req.params.id)
-        .then(account => {
-            res.render('accounts/account', { account })
-        })
-})
-
-app.delete('/accounts/:id', (req,res) => {
-    accountApi.deleteAccountById(req.params.id)
-        .then(() => {
-            res.redirect('/accounts')
-        })
-})
-
-app.get('/accounts/:id/edit', (req,res) => {
-    accountApi.getAccountById(req.params.id)
-        .then(account => {
-            res.render('accounts/edit-account-form', { account })
-        })
-})
-
-app.put('/accounts/:id', (req,res) => {
-    accountApi.getAccountById(req.params.id)
-        .then(account => {
-            console.log(account)
-            console.log(req.body)
-            accountApi.editAccount(account,req.body)
-                .then(() => {
-                    accountApi.getAccountById(req.params.id)
-                        .then(account => {
-                            res.render('accounts/account', { account })
-                        })
-                })
-        })
-})
+//app.use(require('./routers/index.js'));
+app.use(require('./routers'));
 
 const PORT = process.env.PORT || 3000 
 app.listen(PORT, () => {

@@ -1,6 +1,5 @@
-<h1>Account Page</h1>
-{{account.firstName}}
-{{account._id}}
+<h1>{{account.firstName}} {{account.lastName}} </h1>
+
 
 <form method="POST" action="/accounts/{{account._id}}?_method=DELETE">
     <input type="submit" value="delete this account" />
