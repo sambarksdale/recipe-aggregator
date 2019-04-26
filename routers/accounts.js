@@ -1,5 +1,6 @@
 const express = require('express');
 const accountApi = require('../api/accountApi')
+const recipiesApi = require('../api/recipiesApi')
 
 const router = express.Router();
 
@@ -26,12 +27,19 @@ router
 
 router
     .route('/accounts/:id')
+    // .get((req,res) => {
+    //     accountApi.getAccountById(req.params.id)
+    //         .then(account => {
+    //             res.render('accounts/account', { account })
+    //         })
+    // })
     .get((req,res) => {
         accountApi.getAccountById(req.params.id)
             .then(account => {
-                res.render('accounts/account', { account })
+                
             })
     })
+    //res.render('accounts/account', { account })
     .delete((req,res) => {
         accountApi.deleteAccountById(req.params.id)
             .then(() => {
