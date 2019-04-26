@@ -8,7 +8,12 @@ router
     .get((req,res) => {
             res.send("you found me");
         })
-
+router.route('/recipies/:id').get((req,res) => {
+    recipiesApi.getRecipeById(req.params.id)
+        .then(recipie => {
+            res.render('recipies/recipe')
+        })
+})
 router
     .route('/recipies/:id/new-recipe-form')
     .get((req,res) => {
