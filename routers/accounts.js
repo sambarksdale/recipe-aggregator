@@ -5,6 +5,12 @@ const recipiesApi = require('../api/recipiesApi')
 const router = express.Router();
 
 router
+    .route('/accounts/new-account-form')
+    .get((req,res) => {
+        res.render('accounts/new-account-form');
+    })
+
+router
     .route('/accounts')
     .get((req,res) => {
         accountApi.getAllAccounts()
@@ -19,11 +25,11 @@ router
             })
     })
     
-router
-    .route('/accounts/:id/new-account-form')
-    .get((req,res) => {
-        res.render('accounts/new-account-form');
-    })
+// router
+//     .route('/accounts/:id/new-account-form')
+//     .get((req,res) => {
+//         res.render('accounts/new-account-form');
+//     })
 
 router
     .route('/accounts/:id')
