@@ -5,7 +5,7 @@ const RecipeSchema = mongoose.Schema({
     name: String,
     instructions: String,
     ingredients: Array,
-    userId: ObjectId
+    acctId: ObjectId
 })
 
 let RecipiesColleection = mongoose.model("recipies", RecipeSchema)

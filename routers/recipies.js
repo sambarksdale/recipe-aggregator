@@ -16,9 +16,12 @@ router
                 res.render('recipies/recipe', {recipe})
             })
     })
-    // .delete((req,res) => {
-
-    // })
+    .delete((req,res) => {
+        recipiesApi.deleteRecipeById(req.params.id)
+            .then(() => {
+                res.redirect('/accounts')
+            })
+    })
 router
     .route('/recipies/:id/new-recipe-form')
     .get((req,res) => {
@@ -28,7 +31,14 @@ router
         })
     })
     .post((req,res) => {
-        recipiesApi.newRecipe(req.body)
+        let recipeData = {
+            name: req.body.name,
+            instructions: req.body.instructions,
+            ingredients: req.body.ingredients,
+            acctId: req.params.id
+        }
+        console.log(recipeData)
+        recipiesApi.newRecipe(recipeData)
             .then(() => {
                 res.redirect('/accounts/'+`${req.params.id}`)
             })
