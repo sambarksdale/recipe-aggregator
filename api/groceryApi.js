@@ -24,9 +24,13 @@ function getListById(listId) {
 function getGroceryListsByAccountId(acctId) {
     return GroceryListCollection.find({ acctId });
 }
+function deleteListById(listId) {
+    return GroceryListCollection.deleteOne({ _id: listId})
+}
 module.exports = {
     listAllLists,
     newGroceryList,
     getListById,
-    getGroceryListsByAccountId
+    getGroceryListsByAccountId,
+    deleteListById
 }

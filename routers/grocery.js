@@ -14,9 +14,9 @@ router
     })
 
 router
-    .route('/grocery/:id/new-grocery-form')
+    .route('/grocery/:acctId/new-grocery-form')
     .get((req,res) => {
-        accountApi.getAccountById(req.params.id)
+        accountApi.getAccountById(req.params.acctId)
             .then(account => {
                 res.render('grocery/new-grocery-form', { account })
             })
@@ -25,11 +25,11 @@ router
         let listData = {
             name: req.body.name,
             list: req.body.list,
-            acctId: req.params.id
+            acctId: req.params.acctId
         }
         groceryApi.newGroceryList(listData)
             .then(() => {
-                res.redirect(`/accounts/${req.params.id}`)
+                res.redirect(`/accounts/${req.params.acctId}`)
             })
     })
 
@@ -42,7 +42,10 @@ router
             })
     })
     .delete((req,res) => {
-        
+        groceryApi.deleteListById(req.params.listId)
+            .then(() => {
+                res.redirect(`/accounts/${req.params.acctId}`)
+            })
     })
 
 module.exports = router;
