@@ -9,14 +9,19 @@ const GroceryListSchema = mongoose.Schema({
 
 let GroceryListCollection = mongoose.model("groceryList", GroceryListSchema)
 
+function listAllLists() {
+    return GroceryListCollection.find()
+}
+
 function newGroceryList(listItems) {
     return GroceryListCollection.create(listItems)
 }
 
-function getGroceryListsByAccountId(accountId) {
-    return GroceryListCollection.find(accountId)
+function getGroceryListsByAccountId(acctId) {
+    return GroceryListCollection.find({ acctId });
 }
 module.exports = {
+    listAllLists,
     newGroceryList,
     getGroceryListsByAccountId
 }

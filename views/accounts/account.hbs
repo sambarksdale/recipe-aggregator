@@ -24,6 +24,15 @@
 </a>
 
 <h2>your grocery lists</h2>
+{{#each account.lists}}
+    <ul>
+        <li>
+            <a href="/grocery/{{_id}}">
+                {{name}}
+            </a>
+        </li>
+    </ul>
+{{/each}}
 
 
 

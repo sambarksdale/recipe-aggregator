@@ -5,6 +5,14 @@ const accountApi = require('../api/accountApi')
 const router = express.Router()
 
 router
+    .route('/grocery')
+    .get((req,res) => {
+        groceryApi.listAllLists()
+            .then(list => {
+                res.render('grocery/lists', { list })
+            })
+    })
+router
     .route('/grocery/:id/new-grocery-form')
     .get((req,res) => {
         accountApi.getAccountById(req.params.id)
