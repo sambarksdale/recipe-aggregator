@@ -7,7 +7,8 @@ const methodOverride = require("method-override");
 app.use(express.urlencoded());
 app.use(methodOverride('_method'));
 //app.use(express.static(__dirname+"/public"));
-app.use(express.static(__dirname+"/public"))
+//app.use(express.static(__dirname + "/public"))
+app.use(express.static('public'));
 
 app.set("view engine", "hbs");
 
