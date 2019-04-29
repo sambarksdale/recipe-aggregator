@@ -4,8 +4,24 @@ const recipiesApi = require('../api/recipiesApi')
 const accountApi = require('../api/accountApi')
 const router = express.Router()
 
-router.route('/grocery/:id/new-grocery-form').get((req,res) => {
-    res.render('grocery/new-grocery-form')
-})
+router
+    .route('/grocery/:id/new-grocery-form')
+    .get((req,res) => {
+        accountApi.getAccountById(req.params.id)
+            .then(account => {
+                res.render('grocery/new-grocery-form', { account })
+            })
+    })
+    .post((req,res) => {
+        let listData = {
+            name: req.body.name,
+            list: req.body.list,
+            acctId: req.params.id
+        }
+        groceryApi.newGroceryList(listData)
+            .then(() => {
+                res.redirect(`/accounts/${req.params.id}`)
+            })
+    })
 
 module.exports = router;

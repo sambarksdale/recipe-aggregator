@@ -26,9 +26,9 @@ router
     .route('/recipies/:id/new-recipe-form')
     .get((req,res) => {
         accountApi.getAccountById(req.params.id)
-        .then(account => {
-            res.render('recipies/new-recipe-form', { account })   
-        })
+            .then(account => {
+                res.render('recipies/new-recipe-form', { account })   
+            })
     })
     .post((req,res) => {
         let recipeData = {
@@ -40,7 +40,7 @@ router
         console.log(recipeData)
         recipiesApi.newRecipe(recipeData)
             .then(() => {
-                res.redirect('/accounts/'+`${req.params.id}`)
+                res.redirect(`/accounts/${req.params.id}`)
             })
     })
 

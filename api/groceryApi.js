@@ -4,7 +4,7 @@ const ObjectId = mongoose.Schema.Types.ObjectId;
 const GroceryListSchema = mongoose.Schema({
     name: String,
     list: Array,
-    accountId: ObjectId
+    acctId: ObjectId
 })
 
 let GroceryListCollection = mongoose.model("groceryList", GroceryListSchema)
