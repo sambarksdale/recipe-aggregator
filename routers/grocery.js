@@ -41,5 +41,8 @@ router
                 res.render('grocery/list', { list })
             })
     })
+    .delete((req,res) => {
+        
+    })
 
 module.exports = router;
