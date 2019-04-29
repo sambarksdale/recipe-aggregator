@@ -1,13 +1,34 @@
 <h1>{{account._id}}</h1>
 
-
 <form method="POST" action="/recipies/{{account._id}}/new-recipe-form">
+    <div class="new-recipe-form-module" >
+        <label for="name">recipe name</label>
+        <input type="text" name="name" value="" />
+    </div>
+    <div class="new-recipe-form-module" id="ingredient-module-0">
+        <label for="ingredients">ingredient</label>
+        <input type="text" name="ingredients" value="" id="ingredient-0"/>
+    </div>
+    <div class="new-recipe-form-module" id="addIngredient" >
+        <input type="button" value="+ ingredient" />
+    </div>
+    <div class="new-recipe-form-module" >
+        <label for="instructions">instructions</label>
+        <input type="text" name="instructions" value="" />
+    </div>
+    <div class="new-recipe-form-module" >
+        <input type="submit" value="add recipe" />
+    </div>
+</form>
+
+
+{{!-- <form method="POST" action="/recipies/{{account._id}}/new-recipe-form">
     <label for="name">recipe name</label>
     <input type="text" name="name" value="" />
     <br>
     <br>
     <label for="ingredients">ingredient</label>
-    <input type="text" name="ingredients" value="" />
+    <input type="text" name="ingredients" value="" id="ingredient0"/>
     <br>
     <br>
     <input class="addIngredient" type="button" value="+ ingredient" />
@@ -18,5 +39,5 @@
     <br>
     <br>
     <input type="submit" value="add recipe" />
-</form>
+</form> --}}
 
