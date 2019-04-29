@@ -12,6 +12,7 @@ router
                 res.render('grocery/lists', { list })
             })
     })
+
 router
     .route('/grocery/:id/new-grocery-form')
     .get((req,res) => {
@@ -30,6 +31,12 @@ router
             .then(() => {
                 res.redirect(`/accounts/${req.params.id}`)
             })
+    })
+
+router
+    .route('/grocery/:listId/:actid')
+    .get((req,res) => {
+        groceryApi.
     })
 
 module.exports = router;

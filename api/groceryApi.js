@@ -17,11 +17,16 @@ function newGroceryList(listItems) {
     return GroceryListCollection.create(listItems)
 }
 
+function getListById(listId) {
+    return GroceryListCollection.findById(listId)
+}
+
 function getGroceryListsByAccountId(acctId) {
     return GroceryListCollection.find({ acctId });
 }
 module.exports = {
     listAllLists,
     newGroceryList,
+    getListById,
     getGroceryListsByAccountId
 }
