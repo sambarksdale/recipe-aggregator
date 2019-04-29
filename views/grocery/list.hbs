@@ -1,0 +1,14 @@
+
+<form>
+    <div>
+        <label for="name">Name</label>
+        <input type="text" name="name" value="{{list.name}}" />
+    </div>
+    {{#each list.list}}
+    <div class="list-item" id="item-module-{{@index}}">
+        <input type="text" name="list" value="{{this}}" />
+        <input type="button" value="X" class="delete-item" />
+    </div>
+    {{/each}}
+</form>
+
