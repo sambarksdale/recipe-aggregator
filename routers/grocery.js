@@ -34,7 +34,7 @@ router
     })
 
 router
-    .route('/grocery/:listId/:actid')
+    .route('/grocery/:listId/:acctId')
     .get((req,res) => {
         groceryApi.getListById(req.params.listId)
             .then(list => {
@@ -42,10 +42,18 @@ router
             })
     })
     .delete((req,res) => {
+        console.log(req.params.listId)
         groceryApi.deleteListById(req.params.listId)
             .then(() => {
                 res.redirect(`/accounts/${req.params.acctId}`)
             })
     })
+
+router.route('/grocery/:listId/:acctId/edit').get((req,res) => {
+    groceryApi.getListById(req.params.listId)
+        .then(list => {
+            res.render('grocery/edit-list-form', { list })
+        })
+})
 
 module.exports = router;
