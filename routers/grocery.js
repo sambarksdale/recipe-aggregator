@@ -36,7 +36,10 @@ router
 router
     .route('/grocery/:listId/:actid')
     .get((req,res) => {
-        groceryApi.
+        groceryApi.getListById(req.params.listId)
+            .then(list => {
+                res.render('grocery/list', { list })
+            })
     })
 
 module.exports = router;
