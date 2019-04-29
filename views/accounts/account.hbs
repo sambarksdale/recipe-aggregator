@@ -1,3 +1,11 @@
+<form method="POST" action="/accounts/{{account._id}}?_method=DELETE">
+    <input type="submit" value="delete this account" />
+</form>
+
+<a href="/accounts/{{account._id}}/edit">
+    <input type="button" value="edit this account" />
+</a>
+
 <h1>{{account.firstName}} {{account.lastName}} </h1>
 
 <h2>your recipies</h2>
@@ -11,15 +19,15 @@
     </ul>
 {{/each}}
 
-
-<form method="POST" action="/accounts/{{account._id}}?_method=DELETE">
-    <input type="submit" value="delete this account" />
-</form>
-
-<a href="/accounts/{{account._id}}/edit">
-    <input type="button" value="edit this account" />
-</a>
-
 <a href="/recipies/{{account._id}}/new-recipe-form">
     <input type="button" value="add new recipe" />
+</a>
+
+<h2>your grocery lists</h2>
+
+
+
+
+<a href="/recipies/{{account._id}}/new-recipe-form">
+    <input type="button" value="add new grocey list" />
 </a>
