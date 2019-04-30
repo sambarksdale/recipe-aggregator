@@ -60,9 +60,10 @@ router
 
 router.route('/grocery/update').post((req,res) => {
     let newItem = req.body.item
-    // console.log(newItem);
-    // console.log(typeof newItem);
-    groceryApi.addItemsToList(newItem)
+    let lists = req.body.list
+    console.log(newItem)
+    console.log(lists)
+    // groceryApi.addItemsToList(newItem)
 })
 
 

@@ -1,4 +1,8 @@
-.hidden-input {
+.hidden-item-input {
+    visibility: hidden;
+}
+
+.hidden-list-input {
     visibility: hidden;
 }
 
@@ -8,6 +12,10 @@
 
 .dropdown-content {
     display: none;
+}
+
+.dropdown-content li{
+    display: inline;
 }
 
 .dropdown:hover .dropdown-content {
