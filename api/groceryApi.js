@@ -27,10 +27,22 @@ function getGroceryListsByAccountId(acctId) {
 function deleteListById(listId) {
     return GroceryListCollection.deleteOne({ _id: listId})
 }
+
+function addItemsToList(newItems) {
+    if(typeof newItems === 'object' ) {
+        for(let i = 0; i < newItems.length; i++) {
+            console.log(newItems[i])
+        } 
+    } else {
+        console.log(newItems)
+    }
+}
+
 module.exports = {
     listAllLists,
     newGroceryList,
     getListById,
     getGroceryListsByAccountId,
-    deleteListById
+    deleteListById,
+    addItemsToList
 }

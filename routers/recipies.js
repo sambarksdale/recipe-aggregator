@@ -1,6 +1,7 @@
 const express = require('express');
 const recipiesApi = require('../api/recipiesApi')
 const accountApi = require('../api/accountApi')
+const groceryApi = require('../api/groceryApi')
 const router = express.Router()
 
 router
@@ -13,7 +14,13 @@ router
     .get((req,res) => {
         recipiesApi.getRecipeById(req.params.id)
             .then(recipe => {
-                res.render('recipies/recipe', {recipe})
+                let account = recipe.acctId
+                groceryApi.getGroceryListsByAccountId(account)
+                    .then(lists => {
+                        recipe.lists = lists
+                        res.render('recipies/recipe', {recipe})
+                    })
+                // res.render('recipies/recipe', {recipe})
             })
     })
     .delete((req,res) => {
