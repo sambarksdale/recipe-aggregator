@@ -5,11 +5,13 @@
         <input type="text" name="name" value="{{list.name}}" />
     </div>
     <br>
-    <label>items</label>
+    <label>item</label>
     {{#each list.list}}
     <div class="list-item" id="item-module-{{@index}}">
         <input type="text" name="list" value="{{this}}" />
         <input type="button" value="X" class="delete-item" />
     </div>
     {{/each}}
+    <input id="new-list-item" type="button" value="+ item" />
+    <input type="submit" value="save" />
 </form>

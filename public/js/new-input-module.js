@@ -1,6 +1,6 @@
 let count = 1
 
-function newModule(){
+function newRecipeModule(){
     let name = $('label').filter(document.getElementById('set-name')).attr('for')
     $('#addInput').before(`<div class="new-recipe-form-module" id="input-module-${count}"></div>`)
     $(`#input-module-${count}`).append(`<input type="text" name="${name}" value="" id="ingredient-${count}"/>`)
@@ -10,15 +10,15 @@ function newModule(){
     })
 }
 
-function createNewModule() {
+function createNewRecipeModule() {
     $('#addInput').on('click', function(){
-        newModule();
+        newRecipeModule();
         count = count + 1
     })
 }
 
 $(function(){
-     createNewModule();
+     createNewRecipeModule();
 })
 
 

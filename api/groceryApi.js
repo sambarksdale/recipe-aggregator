@@ -24,18 +24,30 @@ function getListById(listId) {
 function getGroceryListsByAccountId(acctId) {
     return GroceryListCollection.find({ acctId });
 }
+
+function updateList(list,items) {
+    return GroceryListCollection.updateOne(list,items)
+}
+
 function deleteListById(listId) {
     return GroceryListCollection.deleteOne({ _id: listId})
 }
 
-function addItemsToList(newItems) {
-    if(typeof newItems === 'object' ) {
-        for(let i = 0; i < newItems.length; i++) {
-            console.log(newItems[i])
-        } 
-    } else {
-        console.log(newItems)
-    }
+function addItemsToList(lists,newItems) {
+    if(typeof lists === 'object')
+        for(let i = 0; i < lists.length; i++) {
+            getListById(lists[i])
+                .then(list => {
+                    console.log(list.list)
+                    if(typeof newItems === 'object' ) {
+                        for(let i = 0; i < newItems.length; i++) {
+                            
+                        } 
+                    } else {
+                        console.log(newItems)
+                    }
+                })
+        }
 }
 
 module.exports = {
@@ -44,5 +56,6 @@ module.exports = {
     getListById,
     getGroceryListsByAccountId,
     deleteListById,
-    addItemsToList
+    addItemsToList,
+    updateList
 }
