@@ -49,11 +49,19 @@ router
             })
     })
 
-router.route('/grocery/:listId/:acctId/edit').get((req,res) => {
-    groceryApi.getListById(req.params.listId)
-        .then(list => {
-            res.render('grocery/edit-list-form', { list })
+router
+    .route('/grocery/:listId/:acctId/edit')
+        .get((req,res) => {
+            groceryApi.getListById(req.params.listId)
+                .then(list => {
+                    res.render('grocery/edit-list-form', { list })
+                })
         })
+
+router.route('/grocery/update/5cc84edd5f6a973c04812316').post((req,res) => {
+    let newItem = req.body.item
+    console.log(newItem);
+    console.log(typeof newItem);
 })
 
 

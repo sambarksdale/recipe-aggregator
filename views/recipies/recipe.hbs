@@ -8,14 +8,16 @@
 
 
 <h1>{{recipe.name}}</h1>
-<form>
+<form method="POST" action="/grocery/update/5cc84edd5f6a973c04812316">
 {{#each recipe.ingredients}}
     <div>
         <l1>{{this}}</l1> <input class="checkbox" id="checkbox-{{@index}}" type="checkbox" />
         <input type="text" value="{{this}}" class="hidden-input" />   
     </div>
 {{/each}}
+<input type="submit" value="add to shopping list" />
 </form>
+
 
 
 <p>{{recipe.instructions}}</p>
