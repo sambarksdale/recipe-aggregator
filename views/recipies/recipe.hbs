@@ -11,7 +11,7 @@
 <form>
 {{#each recipe.ingredients}}
     <div>
-        <l1>{{this}}</l1> <input type="checkbox"/>
+        <l1>{{this}}</l1> <input class="checkbox" id="checkbox-{{@index}}" type="checkbox" />
         <input type="text" value="{{this}}" class="hidden-input" />   
     </div>
 {{/each}}
