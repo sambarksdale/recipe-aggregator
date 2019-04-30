@@ -1,14 +1,24 @@
-<h1>{{recipe.name}}</h1>
-
-{{#each recipe.ingredients}}
-    <li>
-        {{this}}
-    </li>
-{{/each}}
-
-<p>{{recipe.instructions}}</p>
-
 <form method="POST" action="/recipies/{{recipe._id}}?_method=DELETE">
     <input type="submit" value="delete recipe" />
 </form>
+
+<a href="/accounts/{{recipe.acctId}}">
+    <input type="button" value="back to recipies" />
+</a>
+
+
+<h1>{{recipe.name}}</h1>
+<form>
+{{#each recipe.ingredients}}
+    <div>
+        <l1>{{this}}</l1> <input type="checkbox"/>
+        <input type="text" value="{{this}}" class="hidden-input" />   
+    </div>
+{{/each}}
+</form>
+
+
+<p>{{recipe.instructions}}</p>
+
+
 

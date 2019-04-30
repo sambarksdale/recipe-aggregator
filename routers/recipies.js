@@ -17,15 +17,19 @@ router
             })
     })
     .delete((req,res) => {
-        recipiesApi.deleteRecipeById(req.params.id)
-            .then(() => {
-                res.redirect('/accounts')
+        recipiesApi.getRecipeById(req.params.id)
+            .then(recipe => {
+                let account = recipe.acctId
+                recipiesApi.deleteRecipeById(req.params.id)
+                    .then(() => {
+                        res.redirect(`/accounts/${account}`)
+                    })
             })
     })
 router
-    .route('/recipies/:id/new-recipe-form')
+    .route('/recipies/:acctId/new-recipe-form')
     .get((req,res) => {
-        accountApi.getAccountById(req.params.id)
+        accountApi.getAccountById(req.params.acctId)
             .then(account => {
                 res.render('recipies/new-recipe-form', { account })   
             })
@@ -35,12 +39,12 @@ router
             name: req.body.name,
             instructions: req.body.instructions,
             ingredients: req.body.ingredients,
-            acctId: req.params.id
+            acctId: req.params.acctId
         }
         console.log(recipeData)
         recipiesApi.newRecipe(recipeData)
             .then(() => {
-                res.redirect(`/accounts/${req.params.id}`)
+                res.redirect(`/accounts/${req.params.acctId}`)
             })
     })
 
