@@ -1,0 +1,19 @@
+<h1>edit recipe form</h1>
+<form method="POST" action="/recipes/{{recipe._id}}/edit?_method=PUT">
+    <label for="name">Name</label>
+    <input type="text" name="name" value="{{recipe.name}}" class="form-text-input"/>
+    <label for="ingredients" id="set-name">Ingredients</label>
+    {{#each recipe.ingredients }}
+    <input type="text" name="ingredients" value="{{this}}" class="form-text-input"/>
+    <input type="button" value="X" class="delete-item" />
+    <br>
+    {{/each}}
+     <div class="new-recipe-form-module" id="addInput">
+        <input type="button" value="+ ingredient" class="inverse-header-button" />
+    </div>
+    <label for="instructions">Directions</label>
+    <input name="instructions" value="{{recipe.instructions}}" class="form-block-input" />
+     <div>
+        <input type="submit" value="Save Changes" class="inverse-header-button" />
+    </div>
+</form>

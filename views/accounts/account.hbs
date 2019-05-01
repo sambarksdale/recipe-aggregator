@@ -17,16 +17,16 @@
 <section class="recipe-section">
     <div class="content-container">
         <div class="recipie-list-header">
-            <h2>Recipies</h2>
-            <a href="/recipies/{{account._id}}/new-recipe-form">
+            <h2>recipes</h2>
+            <a href="/recipes/{{account._id}}/new-recipe-form">
                 <input type="button" value="New Recipe" class="inverse-header-button"/>
             </a>
         </div>
-        <div class="recipies-container">
-        {{#each account.recipies}}
+        <div class="recipes-container">
+        {{#each account.recipes}}
                 <div class="sub-container">
                     <div class="sub-container-head">
-                        <a href="/recipies/{{_id}}">{{name}}</a>
+                        <a href="/recipes/{{_id}}">{{name}}</a>
                     </div>
                     <div class="sub-container-body">
                         {{#each ingredients}}

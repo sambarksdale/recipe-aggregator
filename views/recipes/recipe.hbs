@@ -4,12 +4,15 @@
             <h1>{{recipe.name}}</h1>
         </div>
         <div class="header-container">
-            <form method="POST" action="/recipies/{{recipe._id}}?_method=DELETE">
+            <a href="/recipes/{{recipe._id}}/edit">
+                <input type="button" value="Edit Recipe" class="header-button" />
+            </a>
+            <form method="POST" action="/recipes/{{recipe._id}}?_method=DELETE">
                 <input type="submit" value="delete recipe" class="header-button" />
             </form>
 
             <a href="/accounts/{{recipe.acctId}}">
-                <input type="button" value="back to recipies" class="header-button" />
+                <input type="button" value="back to recipes" class="header-button" />
             </a>
         </div>
     </div>
@@ -45,7 +48,6 @@
     </div>
 </section>
 
-<p>{{recipe.instructions}}</p>
 
 
 
