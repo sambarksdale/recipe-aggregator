@@ -5,16 +5,16 @@
         </div>
         <div class="header-container">   
             <a href="/accounts/{{account._id}}/edit">
-            <input type="button" value="Edit" class="header-button"/>
+            <input type="button" value="Edit Account" class="header-button"/>
             </a>
 
             <form method="POST" action="/accounts/{{account._id}}?_method=DELETE">
-            <input type="submit" value="Delete" class="header-button" />
+            <input type="submit" value="Delete Account" class="header-button" />
             </form>
         </div>
     </div>
 </header>
-<main>
+<section class="recipe-section">
     <div class="content-container">
         <div class="recipie-list-header">
             <h2>Recipies</h2>
@@ -24,7 +24,6 @@
         </div>
         <div class="recipies-container">
         {{#each account.recipies}}
-            <a href="/recipies/{{_id}}">
                 <div class="sub-container">
                     <div class="sub-container-head">
                         <a href="/recipies/{{_id}}">{{name}}</a>
@@ -35,26 +34,26 @@
                         {{/each}}
                     </div>
                 </div>
-            </a>
         {{/each}}
         </div>
     </div>
-</main>
+</section>
+<section class="list-section">
+    <div class="content-container">
+        <div class="shopping-list-header">
+            <h2>Shopping Lists</h2>
+            <a href="/grocery/{{account._id}}/new-grocery-form">
+                <input type="button" value="New List" class="header-button"/>
+            </a>    
+        </div>
+        <div class="lists-container">
+        {{#each account.lists}}
+               <a href="/grocery/{{_id}}/{{acctId}}">
+                <div>
+                    <p>{{name}}</p>
+                </div>
+                </a> 
+        {{/each}}  
+        </div>
 
-<h2>your grocery lists</h2>
-{{#each account.lists}}
-    <ul>
-        <li>
-            <a href="/grocery/{{_id}}/{{acctId}}">
-                {{name}}
-            </a>
-        </li>
-    </ul>
-{{/each}}
-
-
-
-
-<a href="/grocery/{{account._id}}/new-grocery-form">
-    <input type="button" value="add new grocey list" />
-</a>
+    

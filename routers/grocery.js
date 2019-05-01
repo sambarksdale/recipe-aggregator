@@ -74,13 +74,7 @@ router
     })
 
 router.route('/grocery/update').post((req,res) => {
-    let newItem = req.body.item
-    let lists = req.body.list
 
-    groceryApi.addItemsToList(lists,newItem)
-        .then(() => {
-            console.log('hold')
-        })
 })
 
 

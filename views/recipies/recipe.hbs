@@ -1,43 +1,43 @@
-<head>
-        
-    <h1>{{recipe.name}}</h1>
-
-    <form method="POST" action="/recipies/{{recipe._id}}?_method=DELETE">
-        <input type="submit" value="delete recipe" />
-    </form>
-
-    <a href="/accounts/{{recipe.acctId}}">
-        <input type="button" value="back to recipies" />
-    </a>
-
-</head>
-
-<h1>{{recipe.name}}</h1>
-<form method="POST" action="/grocery/update">
-
-{{#each recipe.ingredients}}
-    <div> 
-        <input class="item-checkbox" id="checkbox-{{@index}}" type="checkbox" />
-        <l1>{{this}}</l1> 
-        <input type="text" value="{{this}}" class="hidden-item-input" />   
-    </div>
-{{/each}}
-
-<div class="dropdown">
-  <button class="dropbtn">Shopping Lists</button>
-  <div class="dropdown-content">
-    {{#each recipe.lists}}
-        <div>
-            <li>{{name}}</li> <input class="list-checkbox" id="checkbox-{{@index}}" type="checkbox" />
-            <input type="text" value="{{this._id}}" class="hidden-list-input" />   
+<header>
+    <div class="content-container">
+        <div class="header-container">
+            <h1>{{recipe.name}}</h1>
         </div>
-    {{/each}}
-  </div>
-</div>
+        <div class="header-container">
+            <form method="POST" action="/recipies/{{recipe._id}}?_method=DELETE">
+                <input type="submit" value="delete recipe" class="header-button" />
+            </form>
 
-<input type="submit" value="add to shopping list" />
-</form>
+            <a href="/accounts/{{recipe.acctId}}">
+                <input type="button" value="back to recipies" class="header-button" />
+            </a>
+        </div>
+    </div>
+</header>
+<section class="ingredients-section">
+    <div class="content-container">
+        <form method="POST" action="/grocery/update">
+        <h2>Ingredients</h2>
+        {{#each recipe.ingredients}}
+            <div> 
+                <input class="item-checkbox" id="checkbox-{{@index}}" type="checkbox" />
+                <l1>{{this}}</l1> 
+                <input type="text" value="{{this}}" class="hidden-item-input" />   
+            </div>
+        {{/each}}
 
+        <p>Shopping Lists:</p>
+        {{#each recipe.lists}}
+            <div class="shopping-list-node ">
+                <input class="list-checkbox" id="checkbox-{{@index}}" type="checkbox" />
+                <li>{{name}}</li>
+                <input type="text" value="{{this._id}}" class="hidden-list-input" />   
+            </div>
+        {{/each}}
+        <input type="submit" value="add to shopping list" / class="inverse-header-button">
+        </form>
+    </div>
+</section>
 
 
 <p>{{recipe.instructions}}</p>
