@@ -57,10 +57,7 @@ router
                 // console.log(req.body)
                 accountApi.editAccount(account,req.body)
                     .then(() => {
-                        accountApi.getAccountById(req.params.id)
-                            .then(account => {
-                                res.render('accounts/account', { account })
-                            })
+                        res.redirect(`/accounts/${account._id}`)
                     })
             })
     })

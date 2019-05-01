@@ -1,11 +1,11 @@
+<h1>Edit Shopping List</h1>
 <form method="POST" action="/grocery/{{list._id}}/{{list.acctId}}/edit?_method=PUT" />
     <div>
-        <h2>Name</h2>
-        <br>
+        <label>Name</label>
         <input type="text" name="name" value="{{list.name}} "  class="form-text-input"/>
     </div>
     <br>
-    <h2>Item</h2>
+    <label>Item</label>
     {{#each list.list}}
     <div class="list-item" id="item-module-{{@index}}">
         <input type="text" name="list" value="{{this}}" class="form-text-input"/>
