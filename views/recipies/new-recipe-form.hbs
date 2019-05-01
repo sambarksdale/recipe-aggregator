@@ -1,23 +1,23 @@
-<h1>{{account._id}}</h1>
+<h1>New Recipe</h1>
 
 <form method="POST" action="/recipies/{{account._id}}/new-recipe-form">
     <div class="new-recipe-form-module" >
         <label for="name">recipe name</label>
-        <input type="text" name="name" value="" />
+        <input type="text" name="name" value="" class="form-text-input" />
     </div>
     <div class="new-recipe-form-module" id="input-module-0">
         <label for="ingredients" id="set-name">ingredients</label>
-        <input type="text" name="ingredients" value="" id="ingredient-0"/>
+        <input type="text" name="ingredients" value="" id="ingredient-0" class="form-text-input"/>
     </div>
     <div class="new-recipe-form-module" id="addInput">
-        <input type="button" value="+ ingredient" />
+        <input type="button" value="+ ingredient" class="inverse-header-button" />
     </div>
     <div class="new-recipe-form-module" >
-        <label for="instructions">instructions</label>
-        <input type="text" name="instructions" value="" />
+        <label for="instructions">Directions</label>
+        <input type="text" name="instructions" value="" class="form-block-input" />
     </div>
     <div class="new-recipe-form-module" >
-        <input type="submit" value="add recipe" />
+        <input type="submit" value="add recipe" class="inverse-header-button"/>
     </div>
 </form>
 

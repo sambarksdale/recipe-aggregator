@@ -1,14 +1,20 @@
-<form method="POST" action="/grocery/{{list._id}}/{{list.acctId}}?_method=DELETE">
-    <input type="submit" value="delete list" />
-</form>
-<br>
-<a href="/grocery/{{list._id}}/{{list.acctId}}/edit">
-    <input type="button" value="edit list" />
-</a>
-<br>
-<h1>{{list.name}}</h1>
-{{#each list.list}}
-    <li>{{this}}</li>
-{{/each}}
-<br>
+
+    <div class="form-name">
+       <h1>{{list.name}}</h1> 
+    </div>
+<div class="form-body">
+    {{#each list.list}}
+        <li>{{this}}</li>
+    {{/each}}
+</div>
+<div class="form-nav">
+    <form method="POST" action="/grocery/{{list._id}}/{{list.acctId}}?_method=DELETE">
+        <input type="submit" value="delete list" class="inverse-header-button"/>
+    </form>
+    <a href="/grocery/{{list._id}}/{{list.acctId}}/edit">
+        <input type="button" value="edit list" class="inverse-header-button"/>
+    </a>
+</div>
+
+
 

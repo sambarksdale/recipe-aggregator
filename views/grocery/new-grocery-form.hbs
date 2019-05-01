@@ -1,18 +1,18 @@
-<h1>{{account._id}}</h1>
+<h1>New Shopping List</h1>
 
 <form method="POST" action="/grocery/{{account._id}}/new-grocery-form">
     <div class="new-recipe-form-module" >
-        <label for="name">grocery list name</label>
-        <input type="text" name="name" value="" />
+        <label for="name">Shopping List Name</label>
+        <input type="text" name="name" value="" class="form-text-input"/>
     </div>
     <div class="new-grocery-form-module" id="input-module-0">
         <label for="list" id="set-name">items</label>
-        <input type="text" name="list" value="" id="item-0"/>
+        <input type="text" name="list" value="" id="item-0" class="form-text-input"/>
     </div>
     <div class="new-grocery-form-module" id="addInput" >
-        <input type="button" value="+ item" />
+        <input type="button" value="+ item" class="inverse-header-button" />
     </div>
     <div class="new-grocery-form-module" >
-        <input type="submit" value="add grocery list" />
+        <input type="submit" value="add grocery list" class="inverse-header-button" />
     </div>
 </form>

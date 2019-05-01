@@ -1,17 +1,17 @@
 <form method="POST" action="/grocery/{{list._id}}/{{list.acctId}}/edit?_method=PUT" />
     <div>
-        <label for="name">Name</label>
+        <h2>Name</h2>
         <br>
-        <input type="text" name="name" value="{{list.name}}" />
+        <input type="text" name="name" value="{{list.name}} "  class="form-text-input"/>
     </div>
     <br>
-    <label>item</label>
+    <h2>Item</h2>
     {{#each list.list}}
     <div class="list-item" id="item-module-{{@index}}">
-        <input type="text" name="list" value="{{this}}" />
+        <input type="text" name="list" value="{{this}}" class="form-text-input"/>
         <input type="button" value="X" class="delete-item" />
     </div>
     {{/each}}
-    <input id="new-list-item" type="button" value="+ item" />
-    <input type="submit" value="save" />
+    <input id="new-list-item" type="button" value="add item" class="inverse-header-button"/>
+    <input type="submit" value="save changes" class="inverse-header-button"/>
 </form>
