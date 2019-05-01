@@ -1,3 +1,108 @@
+header {
+    background-color: rgb(45, 184, 75);
+}
+
+
+
+.content-container {
+    margin: 0 auto;
+    width: 1000px;
+}
+header .content-container {
+    display: flex;
+    justify-content: space-between
+}
+
+.header-container {
+    /* margin: 0 auto; */
+    display: flex; 
+    color: rgb(248, 248, 248); 
+}
+
+.header-button {
+    font-size: 16px;
+    font-weight: bolder;
+    margin: 0 auto;
+    height: 50px;
+    width: 100px;
+    border: 2px solid rgb(248, 248, 248);
+    background: transparent;
+    color: rgb(248, 248, 248);
+    border-radius: 3px;
+    margin: 5px;
+}
+.header-button:hover {
+    background: rgb(248, 248, 248);
+    color: rgb(0,0,0);
+
+}
+
+.inverse-header-button {
+    font-size: 16px;
+    font-weight: bolder;
+    margin: 0 auto;
+    height: 50px;
+    border: 2px solid rgb(0,0,0);
+    background: transparent;
+    color: rgb(0,0,0);
+    border-radius: 3px;
+    margin: 5px;
+}
+.inverse-header-button:hover {
+    background: rgb(45, 184, 75);
+    color: rgb(248, 248, 248);
+    border: solid rgb(45, 184, 75);
+}
+
+.recipie-list-header {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.recipies-container {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%
+    /* width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between; */
+}
+
+.sub-container {
+    text-align: center;
+    margin: 5px;
+}
+
+.sub-container-head {
+    font-size: 20px;
+    font-weight: bolder;
+    padding: 15px;
+    color: white;
+    background: grey;
+    border-top: 2px solid rgb(0,0,0);
+    border-left: 2px solid rgb(0,0,0);
+    border-right: 2px solid rgb(0,0,0);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+.sub-container-head:hover {
+    background: rgb(45, 184, 75);
+    color: rgb(248, 248, 248);
+}
+.sub-container-head a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.sub-container-body {
+    border: 2px solid rgb(0,0,0);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
 .hidden-item-input {
     visibility: hidden;
 }
@@ -7,11 +112,13 @@
 }
 
 .dropdown {
-
+    position: relative;
 }
 
 .dropdown-content {
+    position: absolute;
     display: none;
+    z-index: 1;
 }
 
 .dropdown-content li{

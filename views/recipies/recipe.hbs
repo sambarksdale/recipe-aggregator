@@ -12,15 +12,6 @@
 
 </head>
 
-<form method="POST" action="/recipies/{{recipe._id}}?_method=DELETE">
-    <input type="submit" value="delete recipe" />
-</form>
-
-<a href="/accounts/{{recipe.acctId}}">
-    <input type="button" value="back to recipies" />
-</a>
-
-
 <h1>{{recipe.name}}</h1>
 <form method="POST" action="/grocery/update">
 

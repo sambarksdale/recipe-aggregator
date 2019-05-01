@@ -1,34 +1,45 @@
-<head>
-    <h1>{{account.firstName}} {{account.lastName}} </h1>
-
-    <div>
-        <button>Menu</button>
-    </div>
-    <div class="dropdown-conten">
-        <a href="/accounts/{{account._id}}/edit">
-        <input type="button" value="edit this account" />
-        </a>
-        <form method="POST" action="/accounts/{{account._id}}?_method=DELETE">
-        <input type="submit" value="delete this account" />
-        </form>
-    </div>
-
-</head>
-
-<h2>your recipies</h2>
-{{#each account.recipies}}
-    <ul>
-        <li>
-            <a href="/recipies/{{_id}}">
-                {{name}}
+<header>
+    <div class="content-container">
+        <div class="header-container">
+            <h1>{{account.firstName}} {{account.lastName}} </h1>
+        </div>
+        <div class="header-container">   
+            <a href="/accounts/{{account._id}}/edit">
+            <input type="button" value="Edit" class="header-button"/>
             </a>
-        </li>
-    </ul>
-{{/each}}
 
-<a href="/recipies/{{account._id}}/new-recipe-form">
-    <input type="button" value="add new recipe" />
-</a>
+            <form method="POST" action="/accounts/{{account._id}}?_method=DELETE">
+            <input type="submit" value="Delete" class="header-button" />
+            </form>
+        </div>
+    </div>
+</header>
+<main>
+    <div class="content-container">
+        <div class="recipie-list-header">
+            <h2>Recipies</h2>
+            <a href="/recipies/{{account._id}}/new-recipe-form">
+                <input type="button" value="New Recipe" class="inverse-header-button"/>
+            </a>
+        </div>
+        <div class="recipies-container">
+        {{#each account.recipies}}
+            <a href="/recipies/{{_id}}">
+                <div class="sub-container">
+                    <div class="sub-container-head">
+                        <a href="/recipies/{{_id}}">{{name}}</a>
+                    </div>
+                    <div class="sub-container-body">
+                        {{#each ingredients}}
+                            <p>{{this}}</p>
+                        {{/each}}
+                    </div>
+                </div>
+            </a>
+        {{/each}}
+        </div>
+    </div>
+</main>
 
 <h2>your grocery lists</h2>
 {{#each account.lists}}
