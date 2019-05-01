@@ -1,3 +1,17 @@
+<head>
+        
+    <h1>{{recipe.name}}</h1>
+
+    <form method="POST" action="/recipies/{{recipe._id}}?_method=DELETE">
+        <input type="submit" value="delete recipe" />
+    </form>
+
+    <a href="/accounts/{{recipe.acctId}}">
+        <input type="button" value="back to recipies" />
+    </a>
+
+</head>
+
 <form method="POST" action="/recipies/{{recipe._id}}?_method=DELETE">
     <input type="submit" value="delete recipe" />
 </form>
@@ -11,9 +25,9 @@
 <form method="POST" action="/grocery/update">
 
 {{#each recipe.ingredients}}
-    <div>
-        <l1>{{this}}</l1> 
+    <div> 
         <input class="item-checkbox" id="checkbox-{{@index}}" type="checkbox" />
+        <l1>{{this}}</l1> 
         <input type="text" value="{{this}}" class="hidden-item-input" />   
     </div>
 {{/each}}

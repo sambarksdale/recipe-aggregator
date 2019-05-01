@@ -25,8 +25,8 @@ function getGroceryListsByAccountId(acctId) {
     return GroceryListCollection.find({ acctId });
 }
 
-function updateList(list,items) {
-    return GroceryListCollection.updateOne(list,items)
+function updateList(list,data) {
+    return GroceryListCollection.updateOne(list,data)
 }
 
 function deleteListById(listId) {

@@ -57,6 +57,21 @@ router
                 res.render('grocery/edit-list-form', { list })
             })
     })
+    .put((req,res) => {
+        groceryApi.getListById(req.params.listId)
+            .then(list => {
+                let updatedList = {
+                    name: req.body.name,
+                    list: req.body.list,
+                    acctId: req.params.acctId
+                }
+                groceryApi.updateList(list,updatedList)
+                    .then(() => {
+                        res.redirect(`/accounts/${list.acctId}`)
+                    }) 
+            })
+
+    })
 
 router.route('/grocery/update').post((req,res) => {
     let newItem = req.body.item

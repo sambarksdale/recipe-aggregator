@@ -1,12 +1,19 @@
-<form method="POST" action="/accounts/{{account._id}}?_method=DELETE">
-    <input type="submit" value="delete this account" />
-</form>
+<head>
+    <h1>{{account.firstName}} {{account.lastName}} </h1>
 
-<a href="/accounts/{{account._id}}/edit">
-    <input type="button" value="edit this account" />
-</a>
+    <div>
+        <button>Menu</button>
+    </div>
+    <div class="dropdown-conten">
+        <a href="/accounts/{{account._id}}/edit">
+        <input type="button" value="edit this account" />
+        </a>
+        <form method="POST" action="/accounts/{{account._id}}?_method=DELETE">
+        <input type="submit" value="delete this account" />
+        </form>
+    </div>
 
-<h1>{{account.firstName}} {{account.lastName}} </h1>
+</head>
 
 <h2>your recipies</h2>
 {{#each account.recipies}}
