@@ -1,7 +1,7 @@
 # Project-2 #
 
 ## erd ##
-![erd image](https://imgur.com/a/qF4Y2Xx.jpg)
+![erd image](erd.jpg)
 
 ## heroku ##
 <https://cryptic-ravine-61121.herokuapp.com/accounts>
