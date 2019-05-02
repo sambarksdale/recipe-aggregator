@@ -73,8 +73,37 @@ router
 
     })
 
-router.route('/grocery/update').post((req,res) => {
+router
+    .route('/grocery/update')
+    .put((req,res) => {
 
+        let newItems = req.body.item
+        let lists = req.body.list
+
+        groceryApi.getListById(lists)
+        .then(list => {
+            let newArray = []
+            
+            for(let i = 0; i < list.list.length; i++){
+                newArray.push(list.list[i])
+            }
+
+            if(typeof newItems === 'object' ) {
+                for(let i = 0; i < newItems.length; i++) {
+                    newArray.push(newItems[i])
+                } 
+            } else {
+                newArray.push(newItems)
+            }
+
+            let listUpdate = {
+                list: newArray
+            }
+            groceryApi.updateList(list,listUpdate)
+                .then(() => {
+                    res.redirect(`/accounts/${list.acctId}`)
+                })
+        })
 })
 
 

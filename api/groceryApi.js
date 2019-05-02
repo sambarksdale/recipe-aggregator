@@ -33,6 +33,29 @@ function deleteListById(listId) {
     return GroceryListCollection.deleteOne({ _id: listId})
 }
 
+function itemsToArray(lists,newItems) {
+    getListById(lists)
+        .then(list => {
+            if(typeof newItems === 'object' ) {
+                for(let i = 0; i < newItems.length; i++) {
+                    list.list.push(newItems[i])
+                } 
+            } else {
+                list.list.push(newItems)
+            }
+            let updatedList = {
+                name: list.name,
+                list: list.list,
+                acctId: list.acctId
+            }
+            console.log(updatedList)
+            updateList(list,updatedList)
+                .then(list => {
+                    console.log(list)
+                })
+        })
+}
+
 function addItemsToList(lists,newItems) {
     if(typeof lists === 'object')
         for(let i = 0; i < lists.length; i++) {
@@ -57,5 +80,6 @@ module.exports = {
     getGroceryListsByAccountId,
     deleteListById,
     addItemsToList,
-    updateList
+    updateList,
+    itemsToArray
 }

@@ -19,25 +19,25 @@
 </header>
 <section class="ingredients-section">
     <div class="content-container">
-        <form method="POST" action="/grocery/update">
-        <h2>Ingredients</h2>
-        {{#each recipe.ingredients}}
-            <div> 
-                <input class="item-checkbox" id="checkbox-{{@index}}" type="checkbox" />
-                <l1>{{this}}</l1> 
-                <input type="text" value="{{this}}" class="hidden-item-input" />   
-            </div>
-        {{/each}}
+        <form method="POST" action="/grocery/update?_method=PUT">
+            <h2>Ingredients</h2>
+            {{#each recipe.ingredients}}
+                <div> 
+                    <input class="item-checkbox" id="checkbox-{{@index}}" type="checkbox" />
+                    <l1>{{this}}</l1> 
+                    <input type="text" value="{{this}}" class="hidden-item-input" />   
+                </div>
+            {{/each}}
 
-        <p>Shopping Lists:</p>
-        {{#each recipe.lists}}
-            <div class="shopping-list-node ">
-                <input class="list-checkbox" id="checkbox-{{@index}}" type="checkbox" />
-                <li>{{name}}</li>
-                <input type="text" value="{{this._id}}" class="hidden-list-input" />   
-            </div>
-        {{/each}}
-        <input type="submit" value="add to shopping list" / class="inverse-header-button">
+            <p>Shopping Lists:</p>
+            {{#each recipe.lists}}
+                <div class="shopping-list-node ">
+                    <input class="list-checkbox" id="checkbox-{{@index}}" type="checkbox" />
+                    <li>{{name}}</li>
+                    <input type="text" value="{{this._id}}" class="hidden-list-input" />   
+                </div>
+            {{/each}}
+            <input type="submit" value="add to shopping list" / class="inverse-header-button">
         </form>
     </div>
 </section>
