@@ -83,7 +83,8 @@ router
         groceryApi.getListById(lists)
         .then(list => {
             let newArray = []
-            
+
+            if(list.list !== null )
             for(let i = 0; i < list.list.length; i++){
                 newArray.push(list.list[i])
             }
