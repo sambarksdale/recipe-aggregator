@@ -34,6 +34,7 @@ function deleteListById(listId) {
 }
 
 function itemsToArray(lists,newItems) {
+
     getListById(lists)
         .then(list => {
             if(typeof newItems === 'object' ) {

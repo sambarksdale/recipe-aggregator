@@ -202,8 +202,8 @@ header .content-container {
 }
 
 .form-block-input {
-    height:50px;
-    width:200px;
+    height:200px;
+    width:600px;
     border: 2px solid black;
     margin: 5px;
     border-radius: 5px;
@@ -217,6 +217,10 @@ header .content-container {
 }
 form label {
     display: block;
+}
+
+.directions-section p {
+    white-space: pre-line
 }
 
 
